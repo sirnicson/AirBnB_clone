@@ -26,12 +26,20 @@ Airbnb-Clone/
 ```
 
 
-The project is divided into several components:
+## Project Components:
 
-- BaseModel Class: A base class that is inherited by other objects (e.g., User) and provides common attributes and methods for interacting with the storage system.
-- FileStorage Class: Manages file-based storage of objects. It handles serializing, deserializing, and listing objects in memory and the storage file.
-- Command Interpreter: A custom shell that allows users to interact with the program via commands. The interpreter can handle commands to manage instances, including creating, displaying, and storing objects.
-- User Class: Inherits from BaseModel and represents a specific type of object to be managed by the system.
+- BaseModel Class (models/base_model.py):
+A base class providing common attributes (id) and methods (save(), to_dict()) for models like User.
+
+- FileStorage Class (models/engine/file_storage.py):
+Manages file-based storage, handling serialization, deserialization, and listing of objects.
+
+- Command Interpreter (console.py):
+A command-line interface that allows users to interact with the program, enabling operations like creating, displaying, and managing objects.
+
+- User Class (models/user.py):
+Inherits from BaseModel and represents a user object, extending the basic functionality with user-specific attributes.
+
 
 ## Features
 
