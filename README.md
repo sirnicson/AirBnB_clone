@@ -26,7 +26,7 @@ Airbnb-Clone/
 ```
 
 
-## Project Components:
+## Project Components
 
 - BaseModel Class (models/base_model.py):
 A base class providing common attributes (id) and methods (save(), to_dict()) for models like User.
@@ -49,6 +49,7 @@ Inherits from BaseModel and represents a user object, extending the basic functi
 - Interactive Mode: Enter commands directly in the terminal.
 - Non-Interactive Mode: Provide commands through script input.
 
+
 ## Installation
 
 ### Prerequisites
@@ -60,6 +61,7 @@ Inherits from BaseModel and represents a user object, extending the basic functi
 - Clone the repository
 - Make sure you have Python installed on your machine.
 - Ensure that all Python files are in the same directory or sub-directories, maintaining the same structure as the repository.
+
 
 ## Usage
 
