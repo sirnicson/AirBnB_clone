@@ -1,5 +1,7 @@
 # 0x00. AirBnB clone - The console
 
+![image](https://github.com/user-attachments/assets/0cff691f-5e4a-4cc2-9c94-401e86ef2402)
+
 ## Overview
 This project is a simple command-line interpreter (shell) for managing instances of various classes, including the BaseModel and User. The interpreter supports running commands to interact with a file-based storage system, and allows users to create, store, and display objects in a structured way. This project is part of a larger set of exercises to build familiarity with object-oriented programming, file handling, and shell programming.
 
