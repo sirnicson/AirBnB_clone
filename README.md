@@ -21,6 +21,8 @@ Airbnb-Clone/
 │   └── __init__.py                   # Makes this folder a Python package
 │   └── test_console.py               # Tests for the command-line interpreter
 │
+├── .gitignore                        # To ignore unnecessary files
+│
 ├── README.md                         # Project documentation
 └── requirements.txt                  # Project dependencies for installation
 ```
