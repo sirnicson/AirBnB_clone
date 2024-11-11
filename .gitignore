@@ -1,0 +1,41 @@
+# Python bytecode files
+*.pyc
+*.pyo
+__pycache__/
+
+# Virtual environment directory (if using venv)
+venv/
+ENV/
+env/
+
+# IDE/editor configuration files
+.vscode/
+.idea/
+
+# Operating system files
+.DS_Store
+Thumbs.db
+
+# Log files
+*.log
+
+# Jupyter Notebook checkpoints
+.ipynb_checkpoints/
+
+# Test coverage reports
+coverage/
+*.cover
+
+# Python distribution packaging
+*.egg-info/
+dist/
+build/
+
+# Python virtual environment
+*.env
+*.venv
+
+# Miscellaneous
+*.bak
+*.swp
+

@@ -7,6 +7,20 @@ This project is a simple command-line interpreter (shell) for managing instances
 
 ## Project Structure
 
+```plaintext
+Airbnb-Clone/
+├── __init__.py        # Makes this a Python package
+├── .gitignore         # To ignore unnecessary files
+├── console.py         # The command line interpreter
+├── models/            # For model classes (e.g., BaseModel, User, etc.)
+├── tests/             # For unit tests
+├── storage/           # For FileStorage logic
+├── README.md          # Project documentation
+├── AUTHORS            # List of Contributors
+├── requirements.txt   # List of dependencies
+```
+
+
 The project is divided into several components:
 
 - BaseModel Class: A base class that is inherited by other objects (e.g., User) and provides common attributes and methods for interacting with the storage system.
