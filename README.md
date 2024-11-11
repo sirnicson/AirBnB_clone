@@ -9,6 +9,9 @@ This project is a simple command-line interpreter (shell) for managing instances
 
 ```plaintext
 Airbnb-Clone/
+│
+├── __init__.py                       # Makes this folder a Python package
+│
 ├── models                            # Contains the model classes and related functionality
 │   └── __init__.py                   # Makes this folder a Python package
 │   └── base_model.py                 # Base class with common attributes and methods for models
@@ -16,10 +19,14 @@ Airbnb-Clone/
 │   └── engine                        # Contains the engine that handles file storage logic
 │       └── __init__.py               # Makes this folder a Python package
 │       └── file_storage.py           # Storage for objects (serialization/deserialization)
+│
 ├── console.py                        # Command-line interpreter for interacting with the program
+│
 ├── tests                             # Contains the unit tests
 │   └── __init__.py                   # Makes this folder a Python package
-│   └── test_console.py               # Tests for the command-line interpreter
+│   └── test_console.py               # Unit tests for the command-line interpreter
+│   └── test_base_model.py            # Unit tests for BaseModel
+│   └── test_file_storage.py          # Unit tests for FileStorage
 │
 ├── .gitignore                        # To ignore unnecessary files
 │
