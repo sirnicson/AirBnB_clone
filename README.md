@@ -18,9 +18,12 @@ Airbnb-Clone/
 │   └── user.py                       # User class inherits from BaseModel
 │   └── engine                        # Contains the engine that handles file storage logic
 │       └── __init__.py               # Makes this folder a Python package
-│       └── file_storage.py           # Storage for objects (serialization/deserialization)
+│       └── file_storage.py           # Implements the FileStorage class, which handles object persistence from storage.json
 │
 ├── console.py                        # Command-line interpreter for interacting with the program
+│
+├── storage
+│   └── storage.json                  # JSON file where objects are serialized for persistence.
 │
 ├── tests                             # Contains the unit tests
 │   └── __init__.py                   # Makes this folder a Python package
