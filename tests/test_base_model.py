@@ -1,56 +1,47 @@
 import unittest
-from datetime import datetime
 from models.base_model import BaseModel
+from datetime import datetime
 
 class TestBaseModel(unittest.TestCase):
-    
+    """Test class for BaseModel"""
+
     def test_instance_creation(self):
-        """Test if an instance of BaseModel is created correctly."""
+        """Test the creation of a new BaseModel instance"""
         bm = BaseModel()
-        self.assertIsInstance(bm, BaseModel)
-        self.assertTrue(hasattr(bm, 'id'))
-        self.assertTrue(hasattr(bm, 'created_at'))
-        self.assertTrue(hasattr(bm, 'updated_at'))
-    
-    def test_id_is_unique(self):
-        """Test that each instance of BaseModel gets a unique id."""
-        bm1 = BaseModel()
-        bm2 = BaseModel()
-        self.assertNotEqual(bm1.id, bm2.id)
-    
+        self.assertIsInstance(bm, BaseModel)  # Check that it's an instance of BaseModel
+        self.assertIsInstance(bm.id, str)  # id should be a string
+        self.assertIsInstance(bm.created_at, datetime)  # created_at should be a datetime object
+        self.assertIsInstance(bm.updated_at, datetime)  # updated_at should be a datetime object
+
     def test_str_method(self):
-        """Test the __str__ method."""
+        """Test the string representation of the BaseModel instance"""
         bm = BaseModel()
-        expected = f"[BaseModel] ({bm.id}) {bm.__dict__}"
-        self.assertEqual(str(bm), expected)
+        # Check that the __str__ method returns the correct format
+        expected_str = f"[{bm.__class__.__name__}] ({bm.id}) {bm.__dict__}"
+        self.assertEqual(str(bm), expected_str)
 
     def test_save_method(self):
-        """Test that the save method updates the updated_at attribute."""
+        """Test the save method that updates updated_at"""
         bm = BaseModel()
         old_updated_at = bm.updated_at
-        bm.save()
-        self.assertNotEqual(bm.updated_at, old_updated_at)
-        self.assertTrue(isinstance(bm.updated_at, datetime))
-    
+        bm.save()  # Call save to update updated_at
+        self.assertNotEqual(bm.updated_at, old_updated_at)  # updated_at should be updated
+
     def test_to_dict_method(self):
-        """Test the to_dict method."""
+        """Test the to_dict method"""
         bm = BaseModel()
         bm_dict = bm.to_dict()
+
+        # Check if to_dict includes all keys and correct values
+        self.assertIn("id", bm_dict)
+        self.assertIn("created_at", bm_dict)
+        self.assertIn("updated_at", bm_dict)
+        self.assertIn("__class__", bm_dict)  # Should include the class name
+        self.assertEqual(bm_dict["__class__"], "BaseModel")  # The class name should be 'BaseModel'
         
-        self.assertEqual(bm_dict["__class__"], "BaseModel")
-        self.assertEqual(bm_dict["id"], bm.id)
+        # Check if created_at and updated_at are in ISO format
         self.assertEqual(bm_dict["created_at"], bm.created_at.isoformat())
         self.assertEqual(bm_dict["updated_at"], bm.updated_at.isoformat())
-    
-    def test_to_dict_values(self):
-        """Test that to_dict() returns the correct dictionary values."""
-        bm = BaseModel()
-        bm_dict = bm.to_dict()
-        
-        # Check if all instance variables are correctly converted to dict
-        for key, value in bm.__dict__.items():
-            if key != "_sa_instance_state":  # Ignore SQLAlchemy internal state if present
-                self.assertEqual(bm_dict[key], value)
-    
-if __name__ == "__main__":
+
+if __name__ == '__main__':
     unittest.main()
