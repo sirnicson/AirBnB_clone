@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-"""The BaseModel class nBnB"""
+"""The BaseModel class hBnB"""
 import uuid
 from datetime import datetime
 
