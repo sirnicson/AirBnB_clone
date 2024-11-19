@@ -1,10 +1,10 @@
 #!/usr/bin/python3
 """Unittests for BaseModel."""
 import unittest
+from datetime import datetime                                                   import uuid                                                                     from time import sleep
+
 from models.base_model import BaseModel
-from datetime import datetime
-import uuid
-from time import sleep
+from models.engine.file_storage import FileStorage
 
 
 class TestBaseModel(unittest.TestCase):
@@ -45,6 +45,7 @@ class TestBaseModel(unittest.TestCase):
         self.assertIsInstance(obj_dict["updated_at"], str)
 
     def test_init_new_instance(self):
+        """Test initialization of a new BaseModel instance."""
         obj = BaseModel()
         self.assertIsInstance(obj, BaseModel)
         self.assertIsNotNone(obj.id)
@@ -52,12 +53,24 @@ class TestBaseModel(unittest.TestCase):
         self.assertIsInstance(obj.updated_at, datetime)
 
     def test_init_from_dict(self):
+        """Test initialization from a dictionary."""
         obj = BaseModel()
         obj_dict = obj.to_dict()
         new_obj = BaseModel(**obj_dict)
         self.assertEqual(obj.id, new_obj.id)
         self.assertEqual(obj.created_at, new_obj.created_at)
         self.assertEqual(obj.updated_at, new_obj.updated_at)
+
+    def test_reload_method(self):
+        """Test the reload method of FileStorage."""
+        storage = FileStorage()
+        obj = BaseModel()
+        storage.save()
+        storage.reload()
+        all_objects = storage.all()
+        key = f"BaseModel.{obj.id}"
+        self.assertIn(key, all_objects)
+        self.assertEqual(all_objects[key].id, obj.id)
 
 
 
