@@ -2,6 +2,7 @@
 """Defines the BaseModel class."""
 import uuid
 from datetime import datetime
+from models.engine.storage_manager import StorageManager
 
 
 class BaseModel:
@@ -27,9 +28,8 @@ class BaseModel:
     def save(self):
         """Update the `updated_at` attribute to the current datetime."""
         self.updated_at = datetime.now()
-        from models.engine.file_storage import FileStorage
-        storage = FileStorage()
-        storage.save()
+        storage_manager = StorageManager()
+        storage_manager.save(self)
 
     def to_dict(self):
         """Return a dictionary representation of the instance."""
