@@ -1,4 +1,5 @@
 # AirBnB Clone - Web Static HTML/CSS Front-End
+![image](https://github.com/user-attachments/assets/f394538d-aa2d-45c7-b614-e89a8784f0cd)
 
 ## Project Overview
 This project is focused on building the front-end static web pages for the AirBnB clone using HTML and CSS. The goal is to develop basic web pages that display elements such as headers, footers, filters, and content sections without using JavaScript or dynamic data loading. This project will teach how to structure and style web pages using HTML and CSS, with an emphasis on layout design and responsiveness.
